@@ -43,5 +43,5 @@ while len(name) > 10:
 clean()
 
 print("Perfeito! Tudo o que eu preciso agora é da sua conta bancária :3\n" +
-      "Mentira, mas preciso saber para qual estação deseja proceguir!")
-input("")
+      "Mentira, mas preciso saber para qual estação deseja proceguir!" + name)
+input("Digite o número da estação: ")
