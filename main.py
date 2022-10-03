@@ -1,70 +1,75 @@
 #Importando bibliotecas
+from utils import clean, callstats, bumpstats
 from radio import load, next, wrong
-from datetime import date
 import json
-import os
-
-stats = "Jsons/stats.json"
 
 #Definições
-def agora():
-    agora.data = str(date.today())
-
-def clean():
-    os.system('cls')
-
 def startradio():
     load()
 
 #Inicializando funções iniciais
-agora()
 startradio()
+callstats()
 
 #Início do código
 clean()
 
-texto = "Para começar digite 'SouBroxa': "
+if callstats.data["stats"]["Estacao"] == 0:
 
-data = agora.data
-user = input(texto)
+    texto = "Para começar digite 'SouBroxa': "
 
-user.casefold()
+    user = input(texto)
 
-while user != 'soubroxa':
-    wrong()
+    user.casefold()
+
+    while user != 'soubroxa':
+        wrong()
+        clean()
+        print("Oops, parece que você digitou errado :/")
+        user = input("Para começar digite 'SouBroxa': ")
+
+    next()
     clean()
-    print("Oops, parece que você digitou errado :/")
-    user = input("Para começar digite 'SouBroxa': ")
 
-next()
-clean()
+    texto = 'Obrigado por inicializar nosso sistema, agora digite seu nome!'
 
-texto = 'Obrigado por inicializar nosso sistema, agora digite seu nome!'
+    print(texto)
+    name = input("Name: ")
 
-print(texto)
-name = input("Name: ")
+    while len(name) > 10:
+        wrong()
+        clean()
+        print('Seu nome não pode conter mais de 10 caracteres!')
+        name = input("Nome: ")
 
-while len(name) > 10:
-    clean()
-    print('Seu nome não pode conter mais de 10 caracteres!')
-    name = input("Nome: ")
     name = name.capitalize()
 
-clean()
+    next()
+    clean()
 
-print("Perfeito! Tudo o que eu preciso agora é da sua conta bancária :3\n" +
-      "Mentira, mas preciso saber para qual estação deseja proceguir! " + f"{name} \n" +
-      "[1] Vale do Disco Rígido\n" +
-      "[2] Floresta Gráfica\n" +
-      "[3] Parque da RAM\n" +
-      "[4] Praia das FANS")
+    print("Perfeito! Tudo o que eu preciso agora é da sua conta bancária :3\n" +
+        "Mentira, mas preciso saber para qual estação deseja proceguir! " + f"{name} \n\n" +
+        "[1] Vale do Disco Rígido\n" +
+        "[2] Floresta Gráfica\n" +
+        "[3] Parque da RAM\n" +
+        "[4] Praia das FANS\n")
 
-estacao = input("Digite o número da estação: ")
+    estacao = input("Digite o número da estação: ")
+    estacao = int(estacao)
 
-data["Name"] = name
+    next()
+    clean()
 
-with open (stats, "r", encoding = "utf-8") as f:
-    json.dump(data, f)
+    callstats.data["stats"] = {}
+    callstats.data["stats"]["Name"] = f'{name}'
+    callstats.data["stats"]["Cash"] = 0
 
-if estacao == 1:
-    data["Estacao"] = 1
+    if estacao == 1: callstats.data["stats"]["Estacao"] = 1
+    if estacao == 2: callstats.data["stats"]["Estacao"] = 2
+    if estacao == 3: callstats.data["stats"]["Estacao"] = 3
+    if estacao == 4: callstats.data["stats"]["Estacao"] = 4
+
+    bumpstats()
+    
+else:
+    pass
