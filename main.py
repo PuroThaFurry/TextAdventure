@@ -12,6 +12,7 @@ callstats()
 
 #Início do código
 clean()
+next()
 
 if callstats.data["stats"]["Estacao"] == 0:
 
@@ -45,15 +46,20 @@ if callstats.data["stats"]["Estacao"] == 0:
     next()
     clean()
 
-    print("Perfeito! Tudo o que eu preciso agora é da sua conta bancária :3\n" +
-        "Mentira, mas preciso saber para qual estação deseja proceguir! " + f"{name} \n\n" +
-        "[1] Vale do Disco Rígido\n" +
-        "[2] Floresta Gráfica\n" +
-        "[3] Parque da RAM\n" +
-        "[4] Praia das FANS\n")
+    estacoes = f"Perfeito! Tudo o que eu preciso agora é da sua conta bancária :3\nMentira, mas preciso saber para qual estação deseja proceguir!{name} \n\n[1] \033[31mVALE DO DISCO RÍGIDO\033[0;0m \n[2] \033[32mFLORESTA GRÁFICA\033[0;0m \n[3] \033[35mPARQUE DA RAM\033[0;0m \n[4] \033[34mPRAIA DAS FANS\033[0;0m \n"
+
+    print(estacoes)
 
     estacao = input("Digite o número da estação: ")
     estacao = int(estacao)
+
+    while estacao < 1 or estacao > 4:
+        wrong()
+        clean()
+        print(estacoes)
+        print("Como você errou isso?")
+        estacao = input("Digite o número da estação: ")
+        estacao = int(estacao)
 
     next()
     clean()

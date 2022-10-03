@@ -1,5 +1,7 @@
-def here():
-    
-    print("Você sente uma sensação de nostalgia e saudades, você chegou ao \033[31mDISCO RÍGIDO\033[0;0m")
+import time
 
-here()
+def here():
+    while True:
+        print("Você sente uma sensação de nostalgia e saudades, você chegou ao \033[31mVALE DO DISCO RÍGIDO\033[0;0m")
+
+        time.sleep(50)
