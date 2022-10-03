@@ -1,7 +1,10 @@
 #Importando bibliotecas
+from radio import load, next, wrong
 from datetime import date
-from radio import load
+import json
 import os
+
+stats = "Jsons/stats.json"
 
 #Definições
 def agora():
@@ -28,10 +31,12 @@ user = input(texto)
 user.casefold()
 
 while user != 'soubroxa':
+    wrong()
     clean()
     print("Oops, parece que você digitou errado :/")
     user = input("Para começar digite 'SouBroxa': ")
 
+next()
 clean()
 
 texto = 'Obrigado por inicializar nosso sistema, agora digite seu nome!'
@@ -48,5 +53,18 @@ while len(name) > 10:
 clean()
 
 print("Perfeito! Tudo o que eu preciso agora é da sua conta bancária :3\n" +
-      "Mentira, mas preciso saber para qual estação deseja proceguir!" + name)
-input("Digite o número da estação: ")
+      "Mentira, mas preciso saber para qual estação deseja proceguir! " + f"{name} \n" +
+      "[1] Vale do Disco Rígido\n" +
+      "[2] Floresta Gráfica\n" +
+      "[3] Parque da RAM\n" +
+      "[4] Praia das FANS")
+
+estacao = input("Digite o número da estação: ")
+
+data["Name"] = name
+
+with open (stats, "r", encoding = "utf-8") as f:
+    json.dump(data, f)
+
+if estacao == 1:
+    data["Estacao"] = 1
