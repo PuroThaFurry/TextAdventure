@@ -1,5 +1,6 @@
 #Importando bibliotecas
 from datetime import date
+from radio import load
 import os
 
 #Definições
@@ -9,8 +10,12 @@ def agora():
 def clean():
     os.system('cls')
 
+def startradio():
+    load()
+
 #Inicializando funções iniciais
 agora()
+startradio()
 
 #Início do código
 clean()
