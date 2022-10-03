@@ -1,7 +1,6 @@
 #Importando bibliotecas
-from utils import clean, callstats, bumpstats
 from radio import load, next, wrong
-import json
+from utils import *
 
 #Definições
 def startradio():
@@ -73,3 +72,8 @@ if callstats.data["stats"]["Estacao"] == 0:
     
 else:
     pass
+
+if callstats.data["stats"]["Estacao"] == 1: disk()
+if callstats.data["stats"]["Estacao"] == 2: grafic()
+if callstats.data["stats"]["Estacao"] == 3: ram()
+if callstats.data["stats"]["Estacao"] == 4: fans()
