@@ -18,8 +18,7 @@ if callstats.data["stats"]["Estacao"] == 0:
     texto = "Para começar digite 'SouBroxa': "
 
     user = input(texto)
-
-    user.casefold()
+    user = user.casefold()
 
     while user != 'soubroxa':
         wrong()
