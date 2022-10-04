@@ -11,10 +11,11 @@ executables = [
 ]
 
 includeFiles = ["Jsons/", "Imagens/", "Estacoes/", "Audios/", "radio.py", "utils.py"]
+packages = ["pygame"]
 
 setup(name = 'Text Adventure',
       version = '0.1',
       description = 'Aventure-se por dentro do seu sistema, e salve-o dos Malwares!!',
-      options = {'build_exe':{'include_files':includeFiles}},
+      options = {'build_exe':{'include_files':includeFiles, "packages":packages}},
       executables = executables
       )
