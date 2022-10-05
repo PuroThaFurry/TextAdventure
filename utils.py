@@ -1,3 +1,4 @@
+from pygame.mixer import Sound, music, init
 from datetime import date
 import Estacoes.grafic
 import Estacoes.disk
@@ -7,6 +8,37 @@ import json
 import os
 
 stats = "Jsons/stats.json"
+
+init(frequency = 44100, channels = 2)
+
+beep1 = Sound("Audios/SFX/click.wav")
+beep2 = Sound("Audios/SFX/wrong.wav")
+
+def load():
+
+    music.stop()
+
+    callstats()
+
+    if callstats.data["stats"]["Estacao"] == 0: music.load("Audios/Musicas/Void.mp3")
+    if callstats.data["stats"]["Estacao"] == 1: music.load("Audios/Musicas/SSD.mp3")
+    if callstats.data["stats"]["Estacao"] == 2: music.load("Audios/Musicas/GPU.mp3")
+    if callstats.data["stats"]["Estacao"] == 3: music.load("Audios/Musicas/RAM.mp3")
+    if callstats.data["stats"]["Estacao"] == 4: music.load("Audios/Musicas/Fans.mp3")
+
+    play()
+
+def play():
+
+    music.play(loops = -1)
+
+def next():
+
+    Sound.play(beep1)
+
+def wrong():
+
+    Sound.play(beep2)
 
 def agora():
 

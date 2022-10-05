@@ -1,13 +1,6 @@
 #Importando bibliotecas
-from radio import load, next, wrong
 from utils import *
 
-#Definições
-def startradio():
-    load()
-
-#Inicializando funções iniciais
-startradio()
 callstats()
 
 #Início do código
@@ -15,6 +8,8 @@ clean()
 next()
 
 if callstats.data["stats"]["Estacao"] == 0:
+
+    load()
 
     texto = "Para começar digite 'SouBroxa': "
 
@@ -46,7 +41,7 @@ if callstats.data["stats"]["Estacao"] == 0:
     next()
     clean()
 
-    estacoes = f"Perfeito! Tudo o que eu preciso agora é da sua conta bancária :3\nMentira, mas preciso saber para qual estação deseja proceguir!{name} \n\n[1] \033[31mVALE DO DISCO RÍGIDO\033[0;0m \n[2] \033[32mFLORESTA GRÁFICA\033[0;0m \n[3] \033[35mPARQUE DA RAM\033[0;0m \n[4] \033[34mPRAIA DAS FANS\033[0;0m \n"
+    estacoes = f"Perfeito! Tudo o que eu preciso agora é da sua conta bancária :3\nMentira, mas preciso saber para qual estação deseja proceguir! {name} \n\n[1] \033[31mVALE DO DISCO RÍGIDO\033[0;0m \n[2] \033[32mFLORESTA GRÁFICA\033[0;0m \n[3] \033[35mPARQUE DA RAM\033[0;0m \n[4] \033[34mPRAIA DAS FANS\033[0;0m \n"
 
     print(estacoes)
 
@@ -78,7 +73,18 @@ if callstats.data["stats"]["Estacao"] == 0:
 else:
     pass
 
-if callstats.data["stats"]["Estacao"] == 1: disk()
-if callstats.data["stats"]["Estacao"] == 2: grafic()
-if callstats.data["stats"]["Estacao"] == 3: ram()
-if callstats.data["stats"]["Estacao"] == 4: fans()
+if callstats.data["stats"]["Estacao"] == 1:
+    load()
+    disk()
+
+if callstats.data["stats"]["Estacao"] == 2:
+    load()
+    grafic()
+    
+if callstats.data["stats"]["Estacao"] == 3:
+    load()
+    ram()
+
+if callstats.data["stats"]["Estacao"] == 4:
+    load()
+    fans()
