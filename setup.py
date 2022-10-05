@@ -8,7 +8,7 @@ executables = [
                icon = 'Imagens/ico.jpg')
 ]
 
-includeFiles = ["Jsons/", "Imagens/", "Audios/", "radio.py", "utils.py"]
+includeFiles = ["Jsons/", "Imagens/", "Audios/", "utils.py"]
 packages = ["pygame"]
 excludes = ["_distutils_hack", "PyInstaller", "altgraph", "asyncio", "cffi", "chardet",
             "concurrent", "ctypes", "curses", "cv2", "distutils", "docutils", "email",
