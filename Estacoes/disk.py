@@ -1,9 +1,12 @@
 from utils import *
-import time
 
-def here():
+class Disk:
+    def __init__():
+        pass
 
-    while True:
-        print("Você sente uma sensação de nostalgia e saudades, você chegou ao \033[31mVALE DO DISCO RÍGIDO\033[0;0m")
+    def here():
 
-        time.sleep(50)
+        print("É como ver a sua vida diante dos seus olhos.. Você chega ao \033[31mVALE DO DISCO RÍGIDO\033[0;0m")
+
+        getInput()
+

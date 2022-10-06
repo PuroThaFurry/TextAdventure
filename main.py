@@ -1,12 +1,16 @@
-#Importando bibliotecas
+#Main script
+
+#Importing libraries
 from utils import *
 
+#calling json data
 callstats()
 
-#Início do código
+#Start
 clean()
 next()
 
+#if player have already played, we pass these first steps
 if callstats.data["stats"]["Estacao"] == 0:
 
     load()

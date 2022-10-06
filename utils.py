@@ -59,7 +59,7 @@ def bumpstats():
         json.dump(callstats.data, f)
 
 def disk():
-    Estacoes.disk.here()
+    Estacoes.disk.Disk.here()
 
 def grafic():
     Estacoes.grafic.here()
@@ -69,3 +69,6 @@ def ram():
 
 def fans():
     Estacoes.fans.here()
+
+def getInput(user):
+    user = input("O que deseja fazer agora? ")
